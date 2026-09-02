@@ -162,7 +162,7 @@ hr {
     to { background-position: 200% center; }
 }
 
-.ps4-title {
+.games-title {
     display: inline-block;
     font-size: 2rem;
     font-weight: 700;
@@ -172,7 +172,7 @@ hr {
     letter-spacing: 4px;
 }
 
-.ps5-title {
+.ps4-title {
     display: inline-block;
     font-size: 2rem;
     font-weight: 700;
@@ -241,11 +241,11 @@ hr {
         font-size: 1.8rem;
     }
     
-    .name-mustafa {
+    .name-3lobaali {
         font-size: 2.5rem;
     }
     
-    .ps4-title, .ps5-title {
+    .games-title, .ps4-title {
         font-size: 1.6rem;
     }
 }
