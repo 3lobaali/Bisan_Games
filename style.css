@@ -1,456 +1,457 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap");
+ 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
 
+:root {
+    --bg-start: #070b18;
+    --bg-middle: #111c3d;
+    --bg-end: #160c2e;
+
+    --panel: rgba(12, 20, 45, 0.78);
+    --panel-light: rgba(28, 43, 85, 0.72);
+    --panel-border: rgba(115, 165, 255, 0.22);
+
+    --text: #f7f9ff;
+    --muted: #aebbd6;
+
+    --blue: #1b83ff;
+    --blue-light: #45b4ff;
+    --blue-dark: #0750b7;
+
+    --gold: #ffd45b;
+    --gold-light: #fff0a9;
+    --orange: #ff9e2c;
+
+    --green: #22d78b;
+    --green-dark: #087c4b;
+
+    --danger: #ff4f67;
+    --focus: #ffffff;
+
+    --radius: 18px;
+    --shadow: 0 16px 45px rgba(0, 0, 0, 0.42);
+}
+
+/* أساس الصفحة */
 * {
     box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 15% 10%, rgba(37, 135, 255, 0.26), transparent 32%),
+        radial-gradient(circle at 90% 85%, rgba(160, 47, 255, 0.22), transparent 34%),
+        linear-gradient(135deg, var(--bg-start), var(--bg-middle), var(--bg-end));
+    background-attachment: fixed;
+    font-family: "Rajdhani", Arial, sans-serif;
+    text-align: center;
+    overflow-x: hidden;
 }
 
 body {
     min-height: 100vh;
     margin: 0;
-    padding: 45px 20px;
-    color: #f5f8ff;
-    text-align: center;
-    font-family: "Rajdhani", Arial, sans-serif;
-
-    background:
-        radial-gradient(circle at 15% 10%, rgba(0, 229, 255, 0.18), transparent 28%),
-        radial-gradient(circle at 85% 90%, rgba(168, 85, 247, 0.22), transparent 34%),
-        linear-gradient(135deg, #05060d, #11142a, #211038);
+    padding: 32px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.title-container {
-    margin-bottom: 22px;
+/* يحسن شكل التحديد في المتصفحات الحديثة */
+::selection {
+    background: var(--blue);
+    color: #fff;
 }
 
-.main-title {
-    margin: 0;
-    font-family: "Orbitron", Arial, sans-serif;
-    text-transform: uppercase;
-}
-
-.name-Bisan {
-    display: block;
-    color: #00e5ff;
-    font-size: clamp(2.5rem, 8vw, 4.8rem);
-    font-weight: 900;
-    letter-spacing: 8px;
-    text-shadow: 0 0 18px rgba(0, 229, 255, 0.7);
-}
-
-.games-title,
-.ps4-title {
-    display: inline-block;
-    margin: 8px;
-    font-size: clamp(1.2rem, 4vw, 2rem);
-    font-weight: 700;
-    letter-spacing: 5px;
-}
-
-.games-title {
-    color: #00e5ff;
-    text-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
-}
-
-.ps4-title {
-    color: #cf8cff;
-    text-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
-}
-
-.subtitle {
-    margin-top: 12px;
-    color: #aeb8d0;
-    font-weight: 700;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-}
-
-.version-badge {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 9px 20px;
-    color: #071018;
-    font-family: "Orbitron", Arial, sans-serif;
-    font-size: 0.82rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #9ffaff, #00e5ff, #72f6b2);
-    border-radius: 999px;
-    box-shadow: 0 0 18px rgba(0, 229, 255, 0.45);
-}
-
-hr {
-    width: min(620px, 85%);
-    height: 2px;
-    margin: 25px auto;
-    border: 0;
-    background: linear-gradient(90deg, transparent, #a855f7, #00e5ff, #ff3b9d, transparent);
-    box-shadow: 0 0 13px rgba(0, 229, 255, 0.75);
-}
-
-#menu {
-    width: min(680px, 100%);
-    margin: auto;
-    padding: 35px 20px;
-    background: rgba(12, 16, 35, 0.9);
-    border: 1px solid rgba(0, 229, 255, 0.45);
-    border-radius: 22px;
-    box-shadow:
-        0 0 28px rgba(0, 229, 255, 0.18),
-        0 18px 45px rgba(0, 0, 0, 0.5);
-}
-
-#menu h2 {
-    margin: 0 0 28px;
-    color: #9ffaff;
-    font-family: "Orbitron", Arial, sans-serif;
-    font-size: clamp(1.05rem, 3vw, 1.4rem);
-    text-shadow: 0 0 12px rgba(0, 229, 255, 0.55);
-}
-
-.btn {
-    width: min(92%, 410px);
-    min-height: 62px;
-    color: #ffffff;
-    font-family: "Rajdhani", Arial, sans-serif;
-    font-size: clamp(1.1rem, 3vw, 1.35rem);
-    font-weight: 700;
-    letter-spacing: 1px;
-    cursor: pointer;
-    border: 1px solid #00e5ff;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #007e9f, #7a2bbf);
-    box-shadow: 0 0 18px rgba(0, 229, 255, 0.42);
-    transition: 0.2s ease;
-}
-
-.btn:hover {
-    color: #09111b;
-    background: linear-gradient(135deg, #a5faff, #00e5ff, #ca83ff);
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.8);
-    transform: translateY(-3px);
-}
-
-.btn:focus {
-    outline: 3px solid #ffffff;
-    outline-offset: 4px;
-}
-
-.credit {
-    margin: 30px 0 4px;
-    color: #dce6fa;
-    font-size: 1.05rem;
-}
-
-.credit a {
-    color: #ffd449;
-    font-weight: 700;
+a {
+    color: inherit;
     text-decoration: none;
 }
 
-.thanks {
-    margin: 0;
-    color: #8995b1;
-    font-size: 0.92rem;
-}
-
-@media (max-width: 600px) {
-    body {
-        padding: 28px 12px;
-    }
-
-    #menu {
-        padding: 28px 15px;
-    }
-
-    .games-title,
-    .ps4-title {
-        display: block;
-        margin: 8px auto;
-    }
-}body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 38px 20px;
+/* الحاوية الأساسية */
+#menu,
+#crypto {
+    width: min(760px, 100%);
+    margin: 0 auto;
+    padding: clamp(22px, 4vw, 42px);
     position: relative;
+    overflow: hidden;
 
-    color: var(--white);
-    text-align: center;
-    font-family: "Rajdhani", Arial, sans-serif;
-    overflow-x: hidden;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+        var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
-/* شبكة خلفية خفيفة بطابع Gaming / Arcade */
-body::before {
+/* إضاءة أعلى الكارد */
+#menu::before,
+#crypto::before {
     content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    width: 360px;
+    height: 180px;
+    transform: translateX(-50%);
     pointer-events: none;
-    opacity: 0.25;
 
-    background-image:
-        linear-gradient(rgba(0, 229, 255, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 229, 255, 0.08) 1px, transparent 1px);
-    background-size: 42px 42px;
-
-    mask-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.9),
-        transparent 85%
+    background: radial-gradient(
+        ellipse,
+        rgba(61, 159, 255, 0.25) 0%,
+        rgba(61, 159, 255, 0) 72%
     );
 }
 
-::selection {
-    color: #071018;
-    background: var(--cyan);
-}
-
-/* عنوان المحل */
-.title-container {
-    width: min(790px, 100%);
-    margin: 0 auto 24px;
-    position: relative;
-    z-index: 1;
-}
-
-.main-title {
-    margin: 0;
-    font-family: "Orbitron", Arial, sans-serif;
-    line-height: 1.15;
-    text-transform: uppercase;
-}
-
-.name-Bisan {
+/* الأقسام الافتراضية المخفية */
+#menu {
     display: block;
-    margin-bottom: 5px;
-
-    font-size: clamp(2.4rem, 8vw, 5rem);
-    font-weight: 900;
-    letter-spacing: clamp(3px, 1.4vw, 12px);
-
-    background: linear-gradient(
-        90deg,
-        #00e5ff 0%,
-        #dfffff 18%,
-        #c26cff 38%,
-        #ffffff 50%,
-        #ff54ad 70%,
-        #00e5ff 100%
-    );
-    background-size: 240% auto;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.5));
-    animation: neon-shine 4s linear infinite;
 }
 
-.Games-title,
-.games-title {
-    display: inline-block;
-    margin: 5px 10px;
+#crypto,
+#tools,
+#lnx,
+#mods {
+    display: none;
+}
 
-    color: var(--cyan);
+/* العناوين */
+h1 {
+    margin: 0 0 20px;
+    color: var(--text);
     font-family: "Orbitron", Arial, sans-serif;
-    font-size: clamp(1.3rem, 4vw, 2.35rem);
-    font-weight: 800;
-    letter-spacing: clamp(2px, 0.8vw, 7px);
-    text-transform: uppercase;
-
-    text-shadow:
-        0 0 10px rgba(0, 229, 255, 1),
-        0 0 26px rgba(0, 229, 255, 0.48);
+    font-size: clamp(1.3rem, 2.6vw, 2rem);
+    line-height: 1.35;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
 }
 
-.ps4-title {
-    display: inline-block;
-    margin: 5px 10px;
+h1#msgs {
+    width: min(90%, 680px);
+    margin: 28px auto;
+    padding: 16px 20px;
 
-    color: var(--purple-light);
-    font-family: "Orbitron", Arial, sans-serif;
-    font-size: clamp(1.3rem, 4vw, 2.35rem);
-    font-weight: 800;
-    letter-spacing: clamp(2px, 0.8vw, 7px);
-    text-transform: uppercase;
-
-    text-shadow:
-        0 0 10px rgba(197, 104, 255, 0.95),
-        0 0 26px rgba(168, 85, 247, 0.48);
-}
-
-.subtitle {
-    margin-top: 14px;
-    color: var(--muted);
-    font-size: clamp(1rem, 2.4vw, 1.3rem);
+    color: var(--gold);
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
     font-weight: 700;
-    letter-spacing: clamp(2px, 0.8vw, 8px);
-    text-transform: uppercase;
+    letter-spacing: 0.4px;
+
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 212, 91, 0.28);
+    border-radius: 14px;
+    box-shadow: inset 0 0 18px rgba(255, 212, 91, 0.06);
 }
 
-.version-badge {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 10px 23px;
-
-    color: #07121a;
-    font-family: "Orbitron", Arial, sans-serif;
-    font-size: clamp(0.73rem, 1.8vw, 0.96rem);
-    font-weight: 900;
-    letter-spacing: 1.5px;
-
-    background: linear-gradient(135deg, #bdfaff, var(--cyan), #7dffbd);
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    border-radius: 999px;
-    box-shadow:
-        0 0 16px rgba(0, 229, 255, 0.6),
-        0 8px 26px rgba(0, 229, 255, 0.26);
-}
-
-/* الخط بين العنوان والقائمة */
+/* فاصل متوهج */
 hr {
-    width: min(650px, 86%);
-    height: 2px;
+    width: min(84%, 620px);
+    height: 1px;
     margin: 24px auto;
     border: 0;
 
     background: linear-gradient(
         90deg,
         transparent,
-        var(--purple),
-        var(--cyan),
-        var(--pink),
+        rgba(69, 180, 255, 0.15),
+        var(--blue-light),
+        rgba(69, 180, 255, 0.15),
         transparent
     );
-    box-shadow:
-        0 0 12px rgba(0, 229, 255, 0.82),
-        0 0 24px rgba(168, 85, 247, 0.46);
+    box-shadow: 0 0 12px rgba(69, 180, 255, 0.6);
 }
 
-/* بطاقة القائمة */
-#menu {
-    width: min(720px, 100%);
-    margin: 0 auto;
-    padding: clamp(25px, 5vw, 44px);
-    position: relative;
+/* شريط تقدم */
+#progress {
+    display: block;
+    width: min(84%, 600px);
+    height: 10px;
+    margin: 20px auto;
     overflow: hidden;
 
-    background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015)),
-        var(--card);
-    border: 1px solid var(--border);
-    border-radius: 28px;
-    box-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.6),
-        0 0 36px rgba(0, 229, 255, 0.1),
-        inset 0 0 0 1px rgba(168, 85, 247, 0.1);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 999px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
-#menu::before {
-    content: "";
-    position: absolute;
-    top: -130px;
-    left: 50%;
-    width: 500px;
-    height: 230px;
-    transform: translateX(-50%);
-    pointer-events: none;
-
-    background: radial-gradient(
-        ellipse,
-        rgba(0, 229, 255, 0.25) 0%,
-        rgba(168, 85, 247, 0.13) 42%,
-        transparent 73%
-    );
+/* ضع العنصر الداخلي progressbar في HTML إن أردت التحريك */
+#progress > div,
+#progress .bar,
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--blue), #00d4ff, var(--gold));
+    box-shadow: 0 0 16px rgba(0, 212, 255, 0.8);
+    transition: width 0.35s ease;
 }
 
-#menu::after {
-    content: "";
-    position: absolute;
-    right: 12%;
-    bottom: 0;
-    left: 12%;
-    height: 2px;
+/* أزرار القائمة */
+.btn {
+    width: min(330px, 92%);
+    min-height: 58px;
+    margin: 8px 5px;
+    padding: 10px 18px;
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--purple),
-        var(--cyan),
-        var(--pink),
-        transparent
-    );
-    box-shadow: 0 0 16px var(--cyan);
-}
-
-/* عنوان GoldHEN الموجود بتنسيق inline في HTML */
-#menu h1 {
-    position: relative;
-    z-index: 1;
-
-    margin: 0 0 30px !important;
-    color: var(--cyan-light) !important;
-    font-family: "Orbitron", Arial, sans-serif !important;
-    font-size: clamp(1.1rem, 3vw, 1.55rem) !important;
-    font-weight: 800;
-    letter-spacing: 1px;
-
-    text-shadow:
-        0 0 10px rgba(0, 229, 255, 0.7),
-        0 0 24px rgba(0, 229, 255, 0.3);
-}
-
-/* زر GoldHEN */
-#menu .btn {
-    width: min(90%, 420px) !important;
-    height: 64px !important;
-    margin: 8px auto !important;
-    padding: 12px 20px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-
-    color: #ffffff !important;
+    color: var(--text);
+    text-align: center;
     font-family: "Rajdhani", Arial, sans-serif;
-    font-size: clamp(1.08rem, 3vw, 1.35rem) !important;
-    font-weight: 800 !important;
-    letter-spacing: 1px;
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    font-weight: 700;
+    letter-spacing: 0.8px;
 
     cursor: pointer;
-    border: 1px solid rgba(0, 229, 255, 0.85) !important;
-    border-radius: 15px !important;
+    outline: none;
+    border: 1px solid rgba(103, 184, 255, 0.28);
+    border-radius: 14px;
 
     background:
-        linear-gradient(135deg, rgba(0, 229, 255, 0.42), rgba(168, 85, 247, 0.72)),
-        #201447 !important;
-
+        linear-gradient(145deg, rgba(58, 141, 255, 0.25), rgba(7, 48, 112, 0.7)),
+        var(--panel-light);
     box-shadow:
-        0 10px 28px rgba(0, 0, 0, 0.44),
-        0 0 16px rgba(0, 229, 255, 0.44),
-        0 0 28px rgba(168, 85, 247, 0.22) !important;
+        0 8px 18px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
 
     transition:
-        transform 0.22s ease,
-        box-shadow 0.22s ease,
-        filter 0.22s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
 }
 
-/* انعكاس ضوئي على الزر */
-#menu .btn::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: -55%;
-    width: 36%;
-    height: 300%;
-    transform: rotate(24deg);
+.btn:hover {
+    transform: translateY(-4px);
+    border-color: rgba(103, 204, 255, 0.85);
+
+    background:
+        linear-gradient(145deg, rgba(44, 155, 255, 0.72), rgba(5, 70, 170, 0.86)),
+        var(--blue-dark);
+    box-shadow:
+        0 13px 28px rgba(0, 112, 255, 0.34),
+        0 0 22px rgba(34, 154, 255, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.985);
+}
+
+/* مهم للتنقل بيد تحكم PS4 أو Keyboard */
+.btn:focus,
+.btn:focus-visible,
+a:focus,
+a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+    border-color: var(--gold);
+    box-shadow:
+        0 0 0 5px rgba(255, 212, 91, 0.26),
+        0 0 24px rgba(255, 212, 91, 0.65);
+}
+
+/* زر أونلاين أو حالة سليمة */
+.btn-onln {
+    border-color: rgba(52, 226, 150, 0.32);
+    background:
+        linear-gradient(145deg, rgba(38, 201, 128, 0.42), rgba(5, 97, 60, 0.84)),
+        #0b5438;
+}
+
+.btn-onln:hover {
+    border-color: rgba(110, 255, 186, 0.86);
+    background:
+        linear-gradient(145deg, rgba(57, 231, 149, 0.74), rgba(8, 137, 82, 0.92)),
+        var(--green-dark);
+    box-shadow:
+        0 13px 28px rgba(21, 216, 130, 0.28),
+        0 0 22px rgba(34, 215, 139, 0.32);
+}
+
+/* العنوان المخصص */
+.title-container {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+}
+
+.main-title {
+    margin: 0 0 8px;
+    color: var(--text);
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.6rem, 5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: clamp(1px, 0.7vw, 5px);
+    text-transform: uppercase;
+}
+
+.name-Bisan {
+    display: block;
+    margin-bottom: 4px;
+
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(2.25rem, 7vw, 4.4rem);
+    font-weight: 900;
+    letter-spacing: clamp(2px, 1vw, 9px);
 
     background: linear-gradient(
         90deg,
-        transparent,
-        rgba(255, 255, 255, 0.28),
+        #ffd45b 0%,
+        #fff6b7 22%,
+        #ff9e2c 42%,
+        #ffffff 53%,
+        #ffbb42 70%,
+        #ffd45b 100%
+    );
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0 0 18px rgba(255, 190, 61, 0.46));
+    animation: goldShine 4s linear infinite;
+}
+
+@keyframes goldShine {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 220% center;
+    }
+}
+
+.games-title,
+.ps4-title {
+    display: inline-block;
+    margin: 8px 8px;
+
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.25rem, 3.7vw, 2.15rem);
+    font-weight: 800;
+    letter-spacing: clamp(2px, 0.6vw, 6px);
+    text-transform: uppercase;
+}
+
+.games-title {
+    color: #4ac8ff;
+    text-shadow:
+        0 0 12px rgba(41, 190, 255, 0.9),
+        0 0 28px rgba(41, 190, 255, 0.42);
+}
+
+.ps4-title {
+    color: #ff6374;
+    text-shadow:
+        0 0 12px rgba(255, 79, 103, 0.88),
+        0 0 28px rgba(255, 79, 103, 0.4);
+}
+
+.subtitle {
+    margin: 14px 0 18px;
+    color: var(--muted);
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: clamp(0.9rem, 2.1vw, 1.22rem);
+    font-weight: 700;
+    letter-spacing: clamp(2px, 0.65vw, 7px);
+    text-transform: uppercase;
+}
+
+.version-badge {
+    display: inline-block;
+    margin: 10px 0 22px;
+    padding: 9px 22px;
+
+    color: #182032;
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--orange));
+    border: 1px solid rgba(255, 255, 255, 0.52);
+    border-radius: 999px;
+    box-shadow:
+        0 8px 22px rgba(255, 180, 48, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+/* الفوتر */
+.credit {
+    margin: 24px 0 5px;
+    color: #dbe4fa;
+    font-size: 1.08rem;
+    font-weight: 600;
+}
+
+.credit-link {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.thanks {
+    margin-top: 9px;
+    color: #8492b5;
+    font-size: 0.93rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* أجهزة صغيرة */
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 18px 12px;
+    }
+
+    #menu,
+    #crypto {
+        padding: 25px 15px;
+        border-radius: 20px;
+    }
+
+    .btn {
+        width: 96%;
+        min-height: 56px;
+        margin: 7px 0;
+    }
+
+    .games-title,
+    .ps4-title {
+        display: block;
+        margin: 8px 0;
+    }
+
+    h1#msgs {
+        width: 94%;
+        margin: 22px auto;
+        padding: 14px;
+    }
+}
+
+/* يوقف الحركة للأشخاص الذين يفضلون ذلك */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}ba(255, 255, 255, 0.28),
         transparent
     );
 
