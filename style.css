@@ -1,33 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
 
 :root {
-    --bg-start: #070b18;
-    --bg-middle: #111c3d;
-    --bg-end: #160c2e;
+    /* هوية محل الألعاب */
+    --bg-start: #07070d;
+    --bg-middle: #101126;
+    --bg-end: #1b0e2e;
 
-    --panel: rgba(12, 20, 45, 0.78);
-    --panel-light: rgba(28, 43, 85, 0.72);
-    --panel-border: rgba(115, 165, 255, 0.22);
+    --panel: rgba(15, 17, 34, 0.9);
+    --panel-light: rgba(32, 36, 66, 0.88);
+    --panel-border: rgba(0, 238, 255, 0.22);
 
-    --text: #f7f9ff;
-    --muted: #aebbd6;
+    --text: #f7fbff;
+    --muted: #a7b1c8;
 
-    --blue: #1b83ff;
-    --blue-light: #45b4ff;
-    --blue-dark: #0750b7;
+    /* ألوان النيون */
+    --cyan: #00e5ff;
+    --cyan-light: #83f5ff;
+    --cyan-dark: #007b99;
 
-    --gold: #ffd45b;
-    --gold-light: #fff0a9;
-    --orange: #ff9e2c;
+    --purple: #9d4edd;
+    --purple-light: #d69cff;
+    --purple-dark: #4c1685;
 
-    --green: #22d78b;
+    --green: #49f28c;
     --green-dark: #087c4b;
 
+    --pink: #ff3d9a;
     --danger: #ff4f67;
-    --focus: #ffffff;
 
+    --gold: #ffc94d;
+    --gold-light: #fff0b3;
+    --orange: #ff8a1f;
+
+    --focus: #ffffff;
     --radius: 18px;
-    --shadow: 0 16px 45px rgba(0, 0, 0, 0.42);
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.58);
 }
 
 /* أساس الصفحة */
@@ -35,6 +42,525 @@
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100%;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 12% 12%, rgba(0, 229, 255, 0.16), transparent 26%),
+        radial-gradient(circle at 88% 12%, rgba(255, 61, 154, 0.14), transparent 27%),
+        radial-gradient(circle at 50% 100%, rgba(157, 78, 221, 0.19), transparent 38%),
+        linear-gradient(135deg, var(--bg-start), var(--bg-middle), var(--bg-end));
+    background-attachment: fixed;
+    font-family: "Rajdhani", Arial, sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* شبكة خفيفة بطابع arcade */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.22;
+    background-image:
+        linear-gradient(rgba(0, 229, 255, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.09) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.82), transparent);
+}
+
+/* تحسين مظهر تحديد النص */
+::selection {
+    color: #061018;
+    background: var(--cyan);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* الحاوية الرئيسية */
+#menu,
+#crypto {
+    width: min(790px, 100%);
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 44px);
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.015)),
+        var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 28px;
+    box-shadow:
+        var(--shadow),
+        0 0 0 1px rgba(157, 78, 221, 0.08) inset,
+        0 0 45px rgba(0, 229, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* إضاءة نيون علوية */
+#menu::before,
+#crypto::before {
+    content: "";
+    position: absolute;
+    top: -115px;
+    left: 50%;
+    width: 470px;
+    height: 210px;
+    transform: translateX(-50%);
+    pointer-events: none;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(0, 229, 255, 0.28) 0%,
+        rgba(157, 78, 221, 0.16) 38%,
+        rgba(0, 229, 255, 0) 72%
+    );
+}
+
+/* خط سفلي زخرفي */
+#menu::after,
+#crypto::after {
+    content: "";
+    position: absolute;
+    right: 12%;
+    bottom: 0;
+    left: 12%;
+    height: 2px;
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--purple),
+        var(--cyan),
+        var(--pink),
+        transparent
+    );
+    box-shadow: 0 0 16px rgba(0, 229, 255, 0.8);
+}
+
+/* الأقسام الافتراضية */
+#menu {
+    display: block;
+}
+
+#crypto,
+#tools,
+#lnx,
+#mods {
+    display: none;
+}
+
+/* العناوين */
+h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 20px;
+    color: var(--text);
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.3rem, 2.6vw, 2rem);
+    line-height: 1.35;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
+}
+
+h1#msgs {
+    width: min(90%, 680px);
+    margin: 28px auto;
+    padding: 15px 20px;
+
+    color: var(--cyan-light);
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: clamp(1.08rem, 2vw, 1.42rem);
+    font-weight: 700;
+    letter-spacing: 0.7px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0, 229, 255, 0.07),
+        rgba(157, 78, 221, 0.12),
+        rgba(255, 61, 154, 0.07)
+    );
+    border: 1px solid rgba(0, 229, 255, 0.24);
+    border-radius: 14px;
+    box-shadow:
+        inset 0 0 18px rgba(0, 229, 255, 0.06),
+        0 0 18px rgba(157, 78, 221, 0.1);
+}
+
+/* فاصل نيون */
+hr {
+    width: min(84%, 620px);
+    height: 2px;
+    margin: 25px auto;
+    border: 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(157, 78, 221, 0.4),
+        var(--cyan),
+        rgba(255, 61, 154, 0.55),
+        transparent
+    );
+    box-shadow:
+        0 0 10px rgba(0, 229, 255, 0.75),
+        0 0 20px rgba(157, 78, 221, 0.38);
+}
+
+/* شريط تقدم */
+#progress {
+    display: block;
+    width: min(84%, 600px);
+    height: 11px;
+    margin: 20px auto;
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.36);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 999px;
+    box-shadow:
+        inset 0 2px 9px rgba(0, 0, 0, 0.6),
+        0 0 14px rgba(0, 229, 255, 0.1);
+}
+
+#progress > div,
+#progress .bar,
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(
+        90deg,
+        var(--purple),
+        var(--cyan),
+        var(--green),
+        var(--gold)
+    );
+    box-shadow:
+        0 0 12px rgba(0, 229, 255, 0.9),
+        0 0 24px rgba(157, 78, 221, 0.6);
+    transition: width 0.35s ease;
+}
+
+/* أزرار القائمة */
+.btn {
+    width: min(340px, 92%);
+    min-height: 60px;
+    margin: 8px 5px;
+    padding: 11px 18px;
+    position: relative;
+    overflow: hidden;
+
+    color: var(--text);
+    text-align: center;
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: clamp(1rem, 2.2vw, 1.22rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    outline: none;
+    border: 1px solid rgba(0, 229, 255, 0.28);
+    border-radius: 14px;
+
+    background:
+        linear-gradient(135deg, rgba(0, 229, 255, 0.12), rgba(157, 78, 221, 0.2)),
+        var(--panel-light);
+    box-shadow:
+        0 9px 20px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+}
+
+/* لمعان يتحرك فوق الزر */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: -80%;
+    left: -60%;
+    width: 45%;
+    height: 260%;
+    transform: rotate(24deg);
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.16),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 120%;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 229, 255, 0.92);
+
+    background:
+        linear-gradient(135deg, rgba(0, 229, 255, 0.34), rgba(157, 78, 221, 0.55)),
+        #242051;
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.46),
+        0 0 18px rgba(0, 229, 255, 0.38),
+        0 0 30px rgba(157, 78, 221, 0.26),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.985);
+}
+
+/* تحكم PS4 وKeyboard */
+.btn:focus,
+.btn:focus-visible,
+a:focus,
+a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+    border-color: var(--gold);
+    box-shadow:
+        0 0 0 5px rgba(255, 201, 77, 0.22),
+        0 0 25px rgba(255, 201, 77, 0.75);
+}
+
+/* زر الحالة أونلاين */
+.btn-onln {
+    border-color: rgba(73, 242, 140, 0.38);
+    background:
+        linear-gradient(135deg, rgba(73, 242, 140, 0.2), rgba(0, 126, 84, 0.42)),
+        #103a32;
+}
+
+.btn-onln:hover {
+    border-color: rgba(112, 255, 180, 0.94);
+    background:
+        linear-gradient(135deg, rgba(73, 242, 140, 0.5), rgba(0, 133, 88, 0.72)),
+        var(--green-dark);
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.42),
+        0 0 20px rgba(73, 242, 140, 0.42),
+        0 0 35px rgba(73, 242, 140, 0.2);
+}
+
+/* قسم العنوان */
+.title-container {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+}
+
+.main-title {
+    margin: 0 0 8px;
+    color: var(--text);
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.55rem, 5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: clamp(1px, 0.7vw, 5px);
+    text-transform: uppercase;
+}
+
+/* اسم المحل: غيّر Bisan Games إلى اسم محلك في HTML */
+.name-Bisan {
+    display: block;
+    margin-bottom: 6px;
+
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(2.15rem, 7vw, 4.4rem);
+    font-weight: 900;
+    letter-spacing: clamp(2px, 1vw, 9px);
+
+    background: linear-gradient(
+        90deg,
+        var(--cyan) 0%,
+        #eaffff 18%,
+        var(--purple-light) 37%,
+        #ffffff 50%,
+        var(--pink) 69%,
+        var(--cyan) 100%
+    );
+    background-size: 230% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.48));
+    animation: neonShine 4s linear infinite;
+}
+
+@keyframes neonShine {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 230% center;
+    }
+}
+
+.games-title,
+.ps4-title {
+    display: inline-block;
+    margin: 8px 8px;
+
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.2rem, 3.6vw, 2.1rem);
+    font-weight: 800;
+    letter-spacing: clamp(2px, 0.6vw, 6px);
+    text-transform: uppercase;
+}
+
+.games-title {
+    color: var(--cyan);
+    text-shadow:
+        0 0 9px rgba(0, 229, 255, 0.95),
+        0 0 24px rgba(0, 229, 255, 0.48);
+}
+
+.ps4-title {
+    color: var(--purple-light);
+    text-shadow:
+        0 0 10px rgba(214, 156, 255, 0.95),
+        0 0 26px rgba(157, 78, 221, 0.52);
+}
+
+.subtitle {
+    margin: 14px 0 18px;
+    color: var(--muted);
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: clamp(0.9rem, 2.1vw, 1.22rem);
+    font-weight: 700;
+    letter-spacing: clamp(2px, 0.65vw, 7px);
+    text-transform: uppercase;
+}
+
+.version-badge {
+    display: inline-block;
+    margin: 10px 0 22px;
+    padding: 9px 22px;
+
+    color: #11131d;
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(0.72rem, 1.8vw, 0.95rem);
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    background: linear-gradient(
+        135deg,
+        var(--cyan-light),
+        var(--cyan),
+        #83ffc2
+    );
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 999px;
+    box-shadow:
+        0 8px 22px rgba(0, 229, 255, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+/* الفوتر */
+.credit {
+    margin: 24px 0 5px;
+    color: #d9e7ff;
+    font-size: 1.08rem;
+    font-weight: 600;
+}
+
+.credit-link {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+
+    background: linear-gradient(
+        90deg,
+        var(--cyan-light),
+        var(--cyan),
+        var(--purple-light),
+        var(--pink)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.thanks {
+    margin-top: 9px;
+    color: #8894ad;
+    font-size: 0.93rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* الشاشات الصغيرة */
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 18px 12px;
+    }
+
+    #menu,
+    #crypto {
+        padding: 25px 15px;
+        border-radius: 21px;
+    }
+
+    .btn {
+        width: 96%;
+        min-height: 57px;
+        margin: 7px 0;
+    }
+
+    .games-title,
+    .ps4-title {
+        display: block;
+        margin: 8px 0;
+    }
+
+    h1#msgs {
+        width: 94%;
+        margin: 22px auto;
+        padding: 14px;
+    }
+}
+
+/* احترام إعداد تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
 html {
     min-height: 100%;
     color: var(--text);
