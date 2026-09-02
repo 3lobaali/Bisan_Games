@@ -1,1 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+
+html {
+    /* خلفية متدرجة عميقة بدرجات الأزرق والأسود */
+    background: radial-gradient(circle at center, #0b1e36 0%, #050b14 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-shadow: 0 0 10px rgba(0, 162, 255, 0.5);
+    font-size: 25px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+h1#msgs {
+    font-size: 22px;
+    color: #00d2ff;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 80%;
+    background: rgba(10, 25, 47, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 162, 255, 0.3);
+    font-family: 'Rajdhani', sans-serif;
+    box-shadow: 0 0 20px rgba(0, 162, 255, 0.15);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* خط فاصل بوهج أزرق */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #00d2ff, #ffffff, #00d2ff, transparent);
+    margin: 25px auto;
+    width: 85%;
+    box-shadow: 0 0 10px #00d2ff;
+}
+
+#progress {
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* الكارت الرئيسي بتصميم زجاجي عصري */
+#menu {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background: rgba(8, 20, 38, 0.7);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 210, 255, 0.25);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 210, 255, 0.1);
+}
+
+#crypto, #tools, #lnx, #mods {
+    display: none;
+}
+
+/* الأزرار الأساسية */
+.btn {
+    background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+    color: #ffffff;
+    width: 280px;
+    height: 50px;
+    padding-bottom: 2px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 10px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #ffffff, #00d2ff);
+    color: #050b14;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
+    border-color: #ffffff;
+}
+
+.btn-onln {
+    background: linear-gradient(145deg, #0083b0, #00b4db);
+}
+
+.btn-onln:hover {
+    background: linear-gradient(145deg, #ffffff, #00b4db);
+    color: #050b14;
+}
+
+/* تنسيق الهيدر والعنوان */
+.title-container {
+    margin-bottom: 20px;
+}
+
+.main-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.3;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* كلمة بيسان متوهجة بالأبيض والأزرق السماوي */
+.name-bisan {
+    display: block;
+    font-size: 3.2rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #ffffff, #00d2ff, #ffffff, #80e5ff, #ffffff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: blueShine 4s linear infinite;
+    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.6));
+    letter-spacing: 6px;
+}
+
+@keyframes blueShine {
+    to { background-position: 200% center; }
+}
+
+.games-title {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 25px rgba(0, 162, 255, 0.6);
+    margin: 5px 8px;
+    letter-spacing: 4px;
+}
+
+.ps4-title {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00d2ff;
+    text-shadow: 0 0 12px rgba(0, 210, 255, 0.9), 0 0 25px rgba(0, 162, 255, 0.6);
+    margin: 5px 8px;
+    letter-spacing: 4px;
+}
+
+.subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    color: #b0c4de;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* شارة الإصدار باللون الأزرق والأبيض */
+.version-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ffffff, #00d2ff);
+    color: #050b14;
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-weight: 900;
+    font-size: 1rem;
+    margin: 15px 0 10px;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* أيقونات الأزرار */
+.btn-icon {
+    display: inline-block;
+    margin: 0 6px;
+    font-weight: 900;
+    color: #00d2ff;
+    transition: color 0.3s;
+}
+
+.btn-main:hover .btn-icon {
+    color: #050b14;
+}
+
+/* تجاوب الشاشات */
+@media (max-width: 600px) {
+    .btn {
+        width: 95%;
+    }
+    
+    .main-title {
+        font-size: 1.8rem;
+    }
+    
+    .name-bisan {
+        font-size: 2.4rem;
+    }
+    
+    .games-title, .ps4-title {
+        font-size: 1.5rem;
+    }
+}
 
