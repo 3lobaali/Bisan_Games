@@ -966,6 +966,9 @@ a:focus-visible {
     }
 }
 
+body {
+    background: red !important;
+}
 /* يوقف الحركة للأشخاص الذين يفضلون ذلك */
 @media (prefers-reduced-motion: reduce) {
     *,
