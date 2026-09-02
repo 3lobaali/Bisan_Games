@@ -1,40 +1,172 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap");
 
-:root {
-    --bg-black: #05050b;
-    --bg-dark: #0d1020;
-    --bg-purple: #24103d;
-
-    --cyan: #00e5ff;
-    --cyan-light: #8bf7ff;
-    --purple: #a855f7;
-    --purple-light: #dda8ff;
-    --pink: #ff3b9d;
-    --green: #40f58d;
-    --gold: #ffd449;
-    --white: #f8fbff;
-    --muted: #9da9c4;
-
-    --card: rgba(12, 15, 31, 0.9);
-    --border: rgba(0, 229, 255, 0.3);
-}
-
-/* إعادة ضبط بسيطة */
 * {
     box-sizing: border-box;
 }
 
-html {
-    min-height: 100%;
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 45px 20px;
+    color: #f5f8ff;
+    text-align: center;
+    font-family: "Rajdhani", Arial, sans-serif;
+
     background:
-        radial-gradient(circle at 15% 10%, rgba(0, 229, 255, 0.22), transparent 28%),
-        radial-gradient(circle at 85% 14%, rgba(255, 59, 157, 0.16), transparent 27%),
-        radial-gradient(circle at 50% 100%, rgba(168, 85, 247, 0.2), transparent 42%),
-        linear-gradient(135deg, var(--bg-black), var(--bg-dark), var(--bg-purple));
-    background-attachment: fixed;
+        radial-gradient(circle at 15% 10%, rgba(0, 229, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 90%, rgba(168, 85, 247, 0.22), transparent 34%),
+        linear-gradient(135deg, #05060d, #11142a, #211038);
 }
 
-body {
+.title-container {
+    margin-bottom: 22px;
+}
+
+.main-title {
+    margin: 0;
+    font-family: "Orbitron", Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.name-Bisan {
+    display: block;
+    color: #00e5ff;
+    font-size: clamp(2.5rem, 8vw, 4.8rem);
+    font-weight: 900;
+    letter-spacing: 8px;
+    text-shadow: 0 0 18px rgba(0, 229, 255, 0.7);
+}
+
+.games-title,
+.ps4-title {
+    display: inline-block;
+    margin: 8px;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.games-title {
+    color: #00e5ff;
+    text-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
+}
+
+.ps4-title {
+    color: #cf8cff;
+    text-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+}
+
+.subtitle {
+    margin-top: 12px;
+    color: #aeb8d0;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.version-badge {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 9px 20px;
+    color: #071018;
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #9ffaff, #00e5ff, #72f6b2);
+    border-radius: 999px;
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.45);
+}
+
+hr {
+    width: min(620px, 85%);
+    height: 2px;
+    margin: 25px auto;
+    border: 0;
+    background: linear-gradient(90deg, transparent, #a855f7, #00e5ff, #ff3b9d, transparent);
+    box-shadow: 0 0 13px rgba(0, 229, 255, 0.75);
+}
+
+#menu {
+    width: min(680px, 100%);
+    margin: auto;
+    padding: 35px 20px;
+    background: rgba(12, 16, 35, 0.9);
+    border: 1px solid rgba(0, 229, 255, 0.45);
+    border-radius: 22px;
+    box-shadow:
+        0 0 28px rgba(0, 229, 255, 0.18),
+        0 18px 45px rgba(0, 0, 0, 0.5);
+}
+
+#menu h2 {
+    margin: 0 0 28px;
+    color: #9ffaff;
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.05rem, 3vw, 1.4rem);
+    text-shadow: 0 0 12px rgba(0, 229, 255, 0.55);
+}
+
+.btn {
+    width: min(92%, 410px);
+    min-height: 62px;
+    color: #ffffff;
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: 1px solid #00e5ff;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #007e9f, #7a2bbf);
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.42);
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    color: #09111b;
+    background: linear-gradient(135deg, #a5faff, #00e5ff, #ca83ff);
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.8);
+    transform: translateY(-3px);
+}
+
+.btn:focus {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+.credit {
+    margin: 30px 0 4px;
+    color: #dce6fa;
+    font-size: 1.05rem;
+}
+
+.credit a {
+    color: #ffd449;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.thanks {
+    margin: 0;
+    color: #8995b1;
+    font-size: 0.92rem;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 28px 12px;
+    }
+
+    #menu {
+        padding: 28px 15px;
+    }
+
+    .games-title,
+    .ps4-title {
+        display: block;
+        margin: 8px auto;
+    }
+}body {
     min-height: 100vh;
     margin: 0;
     padding: 38px 20px;
