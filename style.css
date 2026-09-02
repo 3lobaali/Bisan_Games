@@ -1,251 +1,453 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-start: #070b18;
+    --bg-middle: #111c3d;
+    --bg-end: #160c2e;
+
+    --panel: rgba(12, 20, 45, 0.78);
+    --panel-light: rgba(28, 43, 85, 0.72);
+    --panel-border: rgba(115, 165, 255, 0.22);
+
+    --text: #f7f9ff;
+    --muted: #aebbd6;
+
+    --blue: #1b83ff;
+    --blue-light: #45b4ff;
+    --blue-dark: #0750b7;
+
+    --gold: #ffd45b;
+    --gold-light: #fff0a9;
+    --orange: #ff9e2c;
+
+    --green: #22d78b;
+    --green-dark: #087c4b;
+
+    --danger: #ff4f67;
+    --focus: #ffffff;
+
+    --radius: 18px;
+    --shadow: 0 16px 45px rgba(0, 0, 0, 0.42);
+}
+
+/* أساس الصفحة */
+* {
+    box-sizing: border-box;
+}
 
 html {
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100%;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 15% 10%, rgba(37, 135, 255, 0.26), transparent 32%),
+        radial-gradient(circle at 90% 85%, rgba(160, 47, 255, 0.22), transparent 34%),
+        linear-gradient(135deg, var(--bg-start), var(--bg-middle), var(--bg-end));
     background-attachment: fixed;
-    min-height: 100vh;
-    color: white;
+    font-family: "Rajdhani", Arial, sans-serif;
     text-align: center;
-    font-family: 'Rajdhani', sans-serif;
     overflow-x: hidden;
 }
 
 body {
-    margin: 0;
-    padding: 20px;
     min-height: 100vh;
+    margin: 0;
+    padding: 32px 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
-h1 {
-    text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.8);
-    font-size: 25px;
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-family: 'Orbitron', sans-serif;
-}
-
-h1#msgs {
-    font-size: 22px;
-    color: #ffd700;
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 80%;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    font-family: 'Rajdhani', sans-serif;
+/* يحسن شكل التحديد في المتصفحات الحديثة */
+::selection {
+    background: var(--blue);
+    color: #fff;
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
-hr {
-    border: none;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #4a9eff, transparent);
-    margin: 20px auto;
-    width: 80%;
-}
-
-#progress {
-    display: block;
-    width: 80%;
-    margin: 20px auto;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+/* الحاوية الأساسية */
+#menu,
+#crypto {
+    width: min(760px, 100%);
+    margin: 0 auto;
+    padding: clamp(22px, 4vw, 42px);
+    position: relative;
     overflow: hidden;
+
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+        var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
+/* إضاءة أعلى الكارد */
+#menu::before,
+#crypto::before {
+    content: "";
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    width: 360px;
+    height: 180px;
+    transform: translateX(-50%);
+    pointer-events: none;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(61, 159, 255, 0.25) 0%,
+        rgba(61, 159, 255, 0) 72%
+    );
+}
+
+/* الأقسام الافتراضية المخفية */
 #menu {
     display: block;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
 }
 
-#crypto {
-    display: none;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#tools {
-    display: none;
-}
-
-#lnx {
-    display: none;
-}
-
+#crypto,
+#tools,
+#lnx,
 #mods {
     display: none;
 }
 
+/* العناوين */
+h1 {
+    margin: 0 0 20px;
+    color: var(--text);
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.3rem, 2.6vw, 2rem);
+    line-height: 1.35;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+}
+
+h1#msgs {
+    width: min(90%, 680px);
+    margin: 28px auto;
+    padding: 16px 20px;
+
+    color: var(--gold);
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    font-weight: 700;
+    letter-spacing: 0.4px;
+
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 212, 91, 0.28);
+    border-radius: 14px;
+    box-shadow: inset 0 0 18px rgba(255, 212, 91, 0.06);
+}
+
+/* فاصل متوهج */
+hr {
+    width: min(84%, 620px);
+    height: 1px;
+    margin: 24px auto;
+    border: 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(69, 180, 255, 0.15),
+        var(--blue-light),
+        rgba(69, 180, 255, 0.15),
+        transparent
+    );
+    box-shadow: 0 0 12px rgba(69, 180, 255, 0.6);
+}
+
+/* شريط تقدم */
+#progress {
+    display: block;
+    width: min(84%, 600px);
+    height: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 999px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* ضع العنصر الداخلي progressbar في HTML إن أردت التحريك */
+#progress > div,
+#progress .bar,
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--blue), #00d4ff, var(--gold));
+    box-shadow: 0 0 16px rgba(0, 212, 255, 0.8);
+    transition: width 0.35s ease;
+}
+
+/* أزرار القائمة */
 .btn {
-    background: linear-gradient(145deg, #1a3a5c, #003263);
-    color: white;
-    width: 280px;
-    height: 50px;
-    padding-bottom: 5px;
+    width: min(330px, 92%);
+    min-height: 58px;
+    margin: 8px 5px;
+    padding: 10px 18px;
+
+    color: var(--text);
     text-align: center;
-    font-size: 17px;
-    font-weight: 600;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 5px;
-    margin-right: 5px;
-    border: none;
-    transition: all 0.3s ease;
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+
     cursor: pointer;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    font-family: 'Rajdhani', sans-serif;
+    outline: none;
+    border: 1px solid rgba(103, 184, 255, 0.28);
+    border-radius: 14px;
+
+    background:
+        linear-gradient(145deg, rgba(58, 141, 255, 0.25), rgba(7, 48, 112, 0.7)),
+        var(--panel-light);
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .btn:hover {
-    background: linear-gradient(145deg, #0073e6, #005bb5);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 105, 217, 0.4);
+    transform: translateY(-4px);
+    border-color: rgba(103, 204, 255, 0.85);
+
+    background:
+        linear-gradient(145deg, rgba(44, 155, 255, 0.72), rgba(5, 70, 170, 0.86)),
+        var(--blue-dark);
+    box-shadow:
+        0 13px 28px rgba(0, 112, 255, 0.34),
+        0 0 22px rgba(34, 154, 255, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
+.btn:active {
+    transform: translateY(0) scale(0.985);
+}
+
+/* مهم للتنقل بيد تحكم PS4 أو Keyboard */
+.btn:focus,
+.btn:focus-visible,
+a:focus,
+a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+    border-color: var(--gold);
+    box-shadow:
+        0 0 0 5px rgba(255, 212, 91, 0.26),
+        0 0 24px rgba(255, 212, 91, 0.65);
+}
+
+/* زر أونلاين أو حالة سليمة */
 .btn-onln {
-    background: linear-gradient(145deg, #2d6a4f, #1b4332);
+    border-color: rgba(52, 226, 150, 0.32);
+    background:
+        linear-gradient(145deg, rgba(38, 201, 128, 0.42), rgba(5, 97, 60, 0.84)),
+        #0b5438;
 }
 
 .btn-onln:hover {
-    background: linear-gradient(145deg, #40916c, #2d6a4f);
+    border-color: rgba(110, 255, 186, 0.86);
+    background:
+        linear-gradient(145deg, rgba(57, 231, 149, 0.74), rgba(8, 137, 82, 0.92)),
+        var(--green-dark);
+    box-shadow:
+        0 13px 28px rgba(21, 216, 130, 0.28),
+        0 0 22px rgba(34, 215, 139, 0.32);
 }
 
-/* تنسيق خاص للعنوان */
+/* العنوان المخصص */
 .title-container {
+    position: relative;
+    z-index: 1;
     margin-bottom: 30px;
 }
 
 .main-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
+    margin: 0 0 8px;
+    color: var(--text);
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.6rem, 5vw, 3rem);
     font-weight: 900;
-    line-height: 1.4;
-    letter-spacing: 3px;
+    line-height: 1.25;
+    letter-spacing: clamp(1px, 0.7vw, 5px);
     text-transform: uppercase;
-    margin-bottom: 10px;
 }
 
 .name-Bisan {
     display: block;
-    font-size: 3rem;
+    margin-bottom: 4px;
+
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(2.25rem, 7vw, 4.4rem);
     font-weight: 900;
-    background: linear-gradient(90deg, #ffd700, #ffaa00, #ffd700, #ffec80, #ffd700);
-    background-size: 200% auto;
+    letter-spacing: clamp(2px, 1vw, 9px);
+
+    background: linear-gradient(
+        90deg,
+        #ffd45b 0%,
+        #fff6b7 22%,
+        #ff9e2c 42%,
+        #ffffff 53%,
+        #ffbb42 70%,
+        #ffd45b 100%
+    );
+    background-size: 220% auto;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: goldShine 3s linear infinite;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
-    letter-spacing: 5px;
+
+    filter: drop-shadow(0 0 18px rgba(255, 190, 61, 0.46));
+    animation: goldShine 4s linear infinite;
 }
 
 @keyframes goldShine {
-    to { background-position: 200% center; }
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 220% center;
+    }
+}
+
+.games-title,
+.ps4-title {
+    display: inline-block;
+    margin: 8px 8px;
+
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.25rem, 3.7vw, 2.15rem);
+    font-weight: 800;
+    letter-spacing: clamp(2px, 0.6vw, 6px);
+    text-transform: uppercase;
 }
 
 .games-title {
-    display: inline-block;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #00bfff;
-    text-shadow: 0 0 15px rgba(0, 191, 255, 0.8), 0 0 30px rgba(0, 191, 255, 0.4);
-    margin: 10px 10px;
-    letter-spacing: 4px;
+    color: #4ac8ff;
+    text-shadow:
+        0 0 12px rgba(41, 190, 255, 0.9),
+        0 0 28px rgba(41, 190, 255, 0.42);
 }
 
 .ps4-title {
-    display: inline-block;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #ff4757;
-    text-shadow: 0 0 15px rgba(255, 71, 87, 0.8), 0 0 30px rgba(255, 71, 87, 0.4);
-    margin: 10px 10px;
-    letter-spacing: 4px;
+    color: #ff6374;
+    text-shadow:
+        0 0 12px rgba(255, 79, 103, 0.88),
+        0 0 28px rgba(255, 79, 103, 0.4);
 }
 
 .subtitle {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.2rem;
-    color: #aaa;
-    letter-spacing: 6px;
+    margin: 14px 0 18px;
+    color: var(--muted);
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: clamp(0.9rem, 2.1vw, 1.22rem);
+    font-weight: 700;
+    letter-spacing: clamp(2px, 0.65vw, 7px);
     text-transform: uppercase;
-    margin-bottom: 15px;
-    font-weight: 600;
 }
 
 .version-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #ffd700, #ff6b6b);
-    color: #1a1a1a;
-    padding: 8px 25px;
-    border-radius: 30px;
-    font-weight: 800;
-    font-size: 1rem;
-    margin: 15px 0 25px;
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
-    letter-spacing: 2px;
+    margin: 10px 0 22px;
+    padding: 9px 22px;
+
+    color: #182032;
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+    font-weight: 900;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-family: 'Orbitron', sans-serif;
+
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--orange));
+    border: 1px solid rgba(255, 255, 255, 0.52);
+    border-radius: 999px;
+    box-shadow:
+        0 8px 22px rgba(255, 180, 48, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
 /* الفوتر */
 .credit {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: #ddd;
-    font-weight: 500;
+    margin: 24px 0 5px;
+    color: #dbe4fa;
+    font-size: 1.08rem;
+    font-weight: 600;
 }
 
 .credit-link {
-    background: linear-gradient(90deg, #ffd700, #ffaa00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: none;
+    font-size: 1.25rem;
     font-weight: 800;
-    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+
+    background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .thanks {
-    font-size: 0.95rem;
-    color: #888;
-    margin-top: 10px;
+    margin-top: 9px;
+    color: #8492b5;
+    font-size: 0.93rem;
+    font-weight: 500;
     letter-spacing: 1px;
 }
 
-/* استجابة للموبايل */
+/* أجهزة صغيرة */
 @media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 18px 12px;
+    }
+
+    #menu,
+    #crypto {
+        padding: 25px 15px;
+        border-radius: 20px;
+    }
+
     .btn {
-        width: 90%;
+        width: 96%;
+        min-height: 56px;
+        margin: 7px 0;
     }
-    
-    .main-title {
-        font-size: 1.8rem;
+
+    .games-title,
+    .ps4-title {
+        display: block;
+        margin: 8px 0;
     }
-    
-    .name-3lobaali {
-        font-size: 2.5rem;
+
+    h1#msgs {
+        width: 94%;
+        margin: 22px auto;
+        padding: 14px;
     }
-    
-    .games-title, .ps4-title {
-        font-size: 1.6rem;
+}
+
+/* يوقف الحركة للأشخاص الذين يفضلون ذلك */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
